@@ -8,6 +8,8 @@ import { mongodbPass, mongodbUser, port } from "./constants";
 import authRoutes from "./routes/authRoutes";
 import setHeaderConfig from "./middleware/setHeaderConfig";
 import errorHandler from "./middleware/errorHandler";
+import restaurantRoutes from "./routes/restaurantRoutes";
+import dishRoutes from "./routes/dishRoutes";
 
 const app = express();
 
@@ -17,6 +19,8 @@ app.use(setHeaderConfig);
 app.use(bodyParser.json());
 
 app.use("/auth", authRoutes);
+app.use("/restaurant", restaurantRoutes);
+app.use("/dish", dishRoutes);
 app.use("/", defaultRoute);
 app.use(errorHandler);
 
